@@ -8,7 +8,7 @@
         <label class="font-semibold text-xl mb-2"> Tip % </label>
         <input class="slider w-full" type="range" min="1" max="50" value="10">
       </div>
-      <input class="w-20 px-3 py-2 rounded text-right text-xl shadow appearance-none border text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-semibold" type="number" placeholder="0"/>
+      <input class="w-20 text-xl focus:outline-none focus:bg-white focus:border-purple-500" type="number" placeholder="0"/>
       <div class="ml-2 text-2xl font-semibold">%</div>
     </div>
   </div>
