@@ -2,20 +2,53 @@
 <div class="flex justify-between items-center">
   <div class="mr-3 flex-1">
     <label class="font-semibold text-xl mb-4"> {{ label }} </label>
-    <input class="slider w-full" type="range" min="1" max="50" value="10">
+    <input class="slider w-full"
+      type="range"
+      :min="min"
+      :max="max"
+      @change="$emit('new-value', rangeValue)"
+      v-model="rangeValue">
   </div>
-  <input class="w-20 text-xl focus:outline-none focus:bg-white focus:border-teal-500" type="number" placeholder="0"/>
+  <input class="w-20 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
+    v-model="rangeValue"
+    type="number"
+    @keyup="$emit('new-value', rangeValue)"
+    placeholder="0"/>
 </div>
 </template>
 
 <script>
   export default {
+    name: 'Slider',
+
     props: {
       label: {
         type: String,
         required: true
+      },
+      def: {
+        type: String,
+        required: true
+      },
+      min: {
+        type: String,
+        required: true
+      },
+      max: {
+        type: String,
+        required: true
+      },
+    },
+
+    data: function () {
+      return {
+        rangeValue: 0,
       }
-    }
+    },
+
+    mounted: function () {
+      this.rangeValue = this.def
+    },
   }
 </script>
 

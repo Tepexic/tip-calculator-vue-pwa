@@ -23,8 +23,11 @@ input[type=number] {
 
 /* Style */
 input[type=number] {
-  @apply font-semibold text-right appearance-none bg-white border-2 border-gray-200 rounded py-2 px-4 text-teal-800 leading-tight shadow-lg
+  @apply font-semibold text-right appearance-none bg-white border-2 border-gray-200 rounded py-2 px-4 text-teal-800 leading-tight shadow-lg;
 }
 
+.results {
+  @apply font-semibold text-right appearance-none bg-white border-2 border-gray-200 rounded py-2 px-4 text-teal-800 leading-tight shadow-lg;
+}
 
 @tailwind utilities;
