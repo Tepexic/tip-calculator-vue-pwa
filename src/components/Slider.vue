@@ -1,23 +1,22 @@
 <template>
-  <div class="py-4">
-    <div class="flex justify-center items-center">
-      <svg class="w-12 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-      </svg>
-      <div class="mr-2">
-        <label class="font-semibold text-xl mb-2"> Tip % </label>
-        <input class="slider w-full" type="range" min="1" max="50" value="10">
-      </div>
-      <input class="w-20 text-xl focus:outline-none focus:bg-white focus:border-purple-500" type="number" placeholder="0"/>
-      <div class="ml-2 text-2xl font-semibold">%</div>
-    </div>
+<div class="flex justify-between items-center">
+  <div class="mr-3 flex-1">
+    <label class="font-semibold text-xl mb-4"> {{ label }} </label>
+    <input class="slider w-full" type="range" min="1" max="50" value="10">
   </div>
+  <input class="w-20 text-xl focus:outline-none focus:bg-white focus:border-teal-500" type="number" placeholder="0"/>
+</div>
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    props: {
+      label: {
+        type: String,
+        required: true
+      }
+    }
+  }
 </script>
 
 <style scoped>
@@ -26,9 +25,9 @@ export default {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     height: 10px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
+    background: #ffffff;
     outline: none; /* Remove outline */
-    opacity: 01; /* Set transparency (for mouse-over effects on hover) */
+    opacity: 1; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
 }
@@ -42,13 +41,13 @@ export default {
     appearance: none;
     width: 20px; /* Set a specific slider handle width */
     height: 20px; /* Slider handle height */
-    background: #f59b25; 
+    background: #f5481d; 
     cursor: pointer; /* Cursor on hover */
 }
 .slider::-moz-range-thumb {
-    width: 12px; /* Set a specific slider handle width */
-    height: 12px; /* Slider handle height */
-    background: #f59b25;
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #f5481d;
     cursor: pointer; /* Cursor on hover */
 }
 
