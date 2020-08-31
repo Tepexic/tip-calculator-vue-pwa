@@ -110,6 +110,7 @@ export default {
       this.people = value
     },
     copyContent: function (e) {
+      console.log(e)
     }
   }
 }
