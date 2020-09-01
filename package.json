@@ -1,5 +1,7 @@
 {
-  "name": "tip-calculator-vue-pwa",
+  "name": "tip-calculator",
+  "description": "An app to calculate tip and split the check",
+  "author": "@tepexic",
   "version": "0.1.0",
   "private": true,
   "scripts": {
