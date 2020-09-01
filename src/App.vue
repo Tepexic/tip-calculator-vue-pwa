@@ -10,6 +10,7 @@
         <div class="mr-2 text-2xl font-semibold">Check $</div>
         <input class="w-3/5 text-2xl focus:outline-none focus:bg-white focus:border-teal-500"
           v-model="check"
+          @click="clearCheck"
           type="number"
           placeholder="Check total"/>
       </div>
@@ -20,7 +21,7 @@
             <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
           </svg>
           <Slider class="w-full"
-            label="Tip %" min="0" max="50" def="10"
+            label="Tip %" min="0" max="30" :def="tip"
             v-on:new-value="getTip"/>
         </div>
       </div>
@@ -31,7 +32,7 @@
             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
           </svg>
           <Slider class="w-full"
-            label="Split check with" min="1" max="20" def="1"
+            label="Split check with" min="1" max="10" :def="people"
             v-on:new-value="getPeople"/>
         </div>
       </div>
@@ -44,8 +45,7 @@
         <div class="mr-2 text-2xl font-semibold w-6/12 text-right">Sub total</div>
         <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
           id="subtotal"
-          ref="subtotal"
-          @click="copyContent">
+          ref="subtotal">
           {{ subtotalDisplay }}
         </div>
       </div>
@@ -53,8 +53,7 @@
         <div class="mr-2 text-2xl font-semibold w-6/12 text-right">Tip </div>
         <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
           id="tip"
-          ref="tip"
-          @click="copyContent">
+          ref="tip">
           {{ tipPersonDisplay }}
         </div>
       </div>
@@ -62,8 +61,7 @@
         <div class="mr-2 text-2xl font-semibold w-6/12 text-right">Total</div>
         <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
           id="total"
-          ref="total"
-          @click="copyContent">
+          ref="total">
           {{ total }}
         </div>
       </div>
@@ -85,6 +83,12 @@ export default {
       tip: 10,
       people: 1,
       check: 0,
+    }
+  },
+
+  watch: {
+    check: function () {
+      this.save('check')
     }
   },
 
@@ -112,13 +116,25 @@ export default {
     },
     getTip: function (value) {
       this.tip = value
+      this.save('tip')
     },
     getPeople: function (value) {
       this.people = value
+      this.save('people')
     },
-    copyContent: function () {
+    save: function (p) {
+      localStorage.setItem(p, JSON.stringify(this[p]))
+    },
+    clearCheck: function () {
+      if(! this.check) this.check = null
     }
-  }
+  },
+
+  beforeMount: function () {
+    this.check = JSON.parse(localStorage.getItem('check')) | 0
+    this.tip = JSON.parse(localStorage.getItem('tip')) | 10
+    this.people = JSON.parse(localStorage.getItem('people')) | 1
+  },
 }
 //
 </script>
