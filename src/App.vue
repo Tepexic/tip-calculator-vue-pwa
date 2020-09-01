@@ -2,9 +2,7 @@
   <div id="app" class="w-full h-screen flex items-center justify-center">
     <div class="max-w-sm px-4 text-purple-100 p-2">
       <div class="flex justify-center items-center">
-        <svg class="w-12 mr-2 fill-current text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-        </svg>
+        <svg class="w-12 mr-2 fill-current text-teal-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M9.33 11.5h2.17A4.5 4.5 0 0 1 16 16H8.999L9 17h8v-1a5.578 5.578 0 0 0-.886-3H19a5 5 0 0 1 4.516 2.851C21.151 18.972 17.322 21 13 21c-2.761 0-5.1-.59-7-1.625v-9.304A6.967 6.967 0 0 1 9.33 11.5zM5 19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9zM18 5a3 3 0 1 1 0 6a3 3 0 0 1 0-6zm-7-3a3 3 0 1 1 0 6a3 3 0 0 1 0-6z"/></svg>
         <h1 class="py-4 text-3xl font-bold text-center text-white"> Tip calculator </h1>
       </div>
       <!-- Total -->
