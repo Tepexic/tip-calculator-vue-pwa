@@ -6,13 +6,13 @@
       type="range"
       :min="min"
       :max="max"
-      @change="$emit('new-value', rangeValue)"
+      @change="handleChange"
       v-model="rangeValue">
   </div>
   <input class="w-20 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
     v-model="rangeValue"
     type="number"
-    @keyup="$emit('new-value', rangeValue)"
+    @keyup="handleChange"
     placeholder="0"/>
 </div>
 </template>
@@ -21,24 +21,7 @@
   export default {
     name: 'Slider',
 
-    props: {
-      label: {
-        type: String,
-        required: true
-      },
-      def: {
-        type: String,
-        required: true
-      },
-      min: {
-        type: String,
-        required: true
-      },
-      max: {
-        type: String,
-        required: true
-      },
-    },
+    props: ['label', 'def', 'min', 'max'],
 
     data: function () {
       return {
@@ -49,6 +32,15 @@
     mounted: function () {
       this.rangeValue = this.def
     },
+
+    methods: { 
+      handleChange: function () {
+        if(this.rangeValue < this.min) {
+          this.rangeValue = this.min
+        }
+        this.$emit('new-value', this.rangeValue)
+      }
+    }
   }
 </script>
 
