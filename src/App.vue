@@ -9,7 +9,7 @@
       </div>
       <!-- Total -->
       <div class="mt-10 flex justify-center items-center">
-        <div class="mr-2 text-2xl font-semibold">$</div>
+        <div class="mr-2 text-2xl font-semibold">Check $</div>
         <input class="w-3/5 text-2xl focus:outline-none focus:bg-white focus:border-teal-500"
           v-model="check"
           type="number"
@@ -22,7 +22,7 @@
             <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
           </svg>
           <Slider class="w-full"
-            label="Tip %" min="0" max="50" def="10" 
+            label="Tip %" min="0" max="50" def="10"
             v-on:new-value="getTip"/>
         </div>
       </div>
@@ -40,23 +40,32 @@
       <!-- Results -->
       <div class="mt-8 flex justify-center items-center">
         <div class="mr-2 w-8/12 "></div>
-        <div class="mr-2 mb-2 text-xl w-4/12 text-center">Per person</div>
+        <div class="mr-2 mb-2 font-semibold text-xl w-4/12 text-center">Per person</div>
       </div>
       <div class="pb-4 flex justify-center items-center">
         <div class="mr-2 text-2xl font-semibold w-6/12 text-right">Sub total</div>
-        <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500" @click="copyContent">
+        <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
+          id="subtotal"
+          ref="subtotal"
+          @click="copyContent">
           {{ subtotalDisplay }}
         </div>
       </div>
       <div class="pb-4 flex justify-center items-center">
         <div class="mr-2 text-2xl font-semibold w-6/12 text-right">Tip </div>
-        <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500">
+        <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
+          id="tip"
+          ref="tip"
+          @click="copyContent">
           {{ tipPersonDisplay }}
         </div>
       </div>
       <div class="pb-4 flex justify-center items-center">
         <div class="mr-2 text-2xl font-semibold w-6/12 text-right">Total</div>
-        <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500">
+        <div class="results w-6/12 text-xl focus:outline-none focus:bg-white focus:border-teal-500"
+          id="total"
+          ref="total"
+          @click="copyContent">
           {{ total }}
         </div>
       </div>
@@ -109,8 +118,7 @@ export default {
     getPeople: function (value) {
       this.people = value
     },
-    copyContent: function (e) {
-      console.log(e)
+    copyContent: function () {
     }
   }
 }
